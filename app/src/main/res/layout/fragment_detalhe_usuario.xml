@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/detalheNome"
+            android:layout_width="382dp"
+            android:layout_height="46dp"
+            android:textColor="#222222"
+            android:textSize="25sp"
+            tools:text="Nome Usuário"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/detalheUsername"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            tools:text="Username" />
+
+        <TextView
+            android:id="@+id/detalheEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            tools:text="Email" />
+
+        <TextView
+            android:id="@+id/detalheId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            tools:text="ID" />
+
+        <TextView
+            android:id="@+id/detalheStreet"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            tools:text="Street" />
+
+        <TextView
+            android:id="@+id/detalheSuite"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            tools:text="Suite" />
+
+        <TextView
+            android:id="@+id/detalheZipcode"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            tools:text="Zipcode" />
+
+        <TextView
+            android:id="@+id/detalheCity"
+            android:layout_width="379dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            tools:text="City" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
