@@ -37,7 +37,7 @@ public class FotosViewModel extends AndroidViewModel {
                 repository.obterListaFotos(getApplication().getApplicationContext())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(usuarioResposta -> listaFotos.setValue(usuarioResposta.getFotos()),
+                        .subscribe(fotosResposta -> listaFotos.setValue(fotosResposta.getFotos()),
                                 throwable -> {
                                     Log.i("LOG", "busca fotos" + throwable.getMessage());
                                 })

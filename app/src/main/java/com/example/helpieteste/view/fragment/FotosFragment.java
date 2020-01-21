@@ -47,12 +47,12 @@ public class FotosFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_fotos, container, false);
         initViews(view);
 
-        //recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         viewModel.buscaFotos();
 
-        viewModel.retornaFotos().observe(this, usuarioRetornado->{
-            adapter.update(usuarioRetornado);
+        viewModel.retornaFotos().observe(this, fotoRetornada->{
+            adapter.update(fotoRetornada);
         });
 
 

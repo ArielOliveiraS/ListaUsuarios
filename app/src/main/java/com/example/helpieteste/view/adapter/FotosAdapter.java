@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.helpieteste.R;
 import com.example.helpieteste.model.Fotos;
-import com.example.helpieteste.model.Usuario;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

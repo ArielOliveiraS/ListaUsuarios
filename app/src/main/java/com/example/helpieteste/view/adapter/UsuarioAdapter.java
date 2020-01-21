@@ -15,11 +15,12 @@ import com.example.helpieteste.view.interfaces.OnClickUsuario;
 import java.util.List;
 
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHolder> {
+
     private List<Usuario> usuarioList;
     private OnClickUsuario listener;
 
-    public UsuarioAdapter(List<Usuario> usuárioList, OnClickUsuario listener) {
-        this.usuarioList = usuárioList;
+    public UsuarioAdapter(List<Usuario> usuarioList, OnClickUsuario listener) {
+        this.usuarioList = usuarioList;
         this.listener = listener;
     }
 
@@ -33,9 +34,12 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Usuario usuario = usuarioList.get(position);
+
         holder.onBind(usuario);
 
-        holder.itemView.setOnClickListener(v -> listener.onClickUsuario(usuario));
+        holder.itemView.setOnClickListener(v -> {
+            listener.onClickUsuario(usuario);
+        });
     }
 
     @Override
@@ -43,9 +47,9 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
         return usuarioList.size();
     }
 
-    public void update(List<Usuario> noticiasList) {
+    public void update(List<Usuario> usuarioList) {
         this.usuarioList.clear();
-        this.usuarioList = noticiasList;
+        this.usuarioList = usuarioList;
         notifyDataSetChanged();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -58,18 +62,17 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtCidade = itemView.findViewById(R.id.detalheNome);
+            txtCidade = itemView.findViewById(R.id.textViewCity);
             txtEmail = itemView.findViewById(R.id.textViewEmail);
             txtId = itemView.findViewById(R.id.textViewID);
-            txtNome = itemView.findViewById(R.id.detalheNome);
+            txtNome = itemView.findViewById(R.id.txtNome);
         }
 
-        public void onBind(Usuario usuário) {
-
-            txtNome.setText(usuário.getName());
-            txtId.setText(usuário.getId());
-            txtEmail.setText(usuário.getEmail());
-            txtCidade.setText(usuário.getCity());
+        public void onBind(Usuario usuario) {
+            txtNome.setText(usuario.getName());
+            txtId.setText(usuario.getId());
+            txtEmail.setText(usuario.getEmail());
+            txtCidade.setText(usuario.getCity());
 
         }
     }

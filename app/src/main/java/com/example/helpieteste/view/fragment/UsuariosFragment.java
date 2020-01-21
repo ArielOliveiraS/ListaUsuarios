@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -66,10 +68,17 @@ public class UsuariosFragment extends Fragment implements OnClickUsuario {
 
     @Override
     public void onClickUsuario(Usuario usuario) {
-        Intent intent = new Intent(getContext(), DetalheUsuarioFragment.class);
         Bundle bundle = new Bundle();
         bundle.putParcelable(USUARIO_KEY, usuario);
-        intent.putExtras(bundle);
-        startActivity(intent);
+        Fragment detalheFragment = new DetalheUsuarioFragment();
+        detalheFragment.setArguments(bundle);
+        replaceFragment(detalheFragment);
     }
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.commit();
+    }
+
 }
