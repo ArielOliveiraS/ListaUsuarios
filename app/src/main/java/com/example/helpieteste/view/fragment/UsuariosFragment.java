@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.helpieteste.R;
@@ -46,7 +47,7 @@ public class UsuariosFragment extends Fragment implements OnClickUsuario {
         initViews(view);
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         viewModel.buscaUsuario();
 
         viewModel.retornaUsuario().observe(this, usuarioRetornado->{
@@ -59,7 +60,7 @@ public class UsuariosFragment extends Fragment implements OnClickUsuario {
 
     private void initViews(View view){
         recyclerView = view.findViewById(R.id.recyclerViewUsuario);
-       // adapter = new NoticiaRecyclerViewAdapter(noticias);
+        adapter = new UsuarioAdapter(usuárioList, this);
         viewModel = ViewModelProviders.of(this).get(UsuarioViewModel.class);
     }
 

@@ -15,11 +15,11 @@ import com.example.helpieteste.view.interfaces.OnClickUsuario;
 import java.util.List;
 
 public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHolder> {
-    private List<Usuario> usuárioList;
+    private List<Usuario> usuarioList;
     private OnClickUsuario listener;
 
     public UsuarioAdapter(List<Usuario> usuárioList, OnClickUsuario listener) {
-        this.usuárioList = usuárioList;
+        this.usuarioList = usuárioList;
         this.listener = listener;
     }
 
@@ -32,25 +32,20 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Usuario usuário = usuárioList.get(position);
-        holder.onBind(usuário);
+        final Usuario usuario = usuarioList.get(position);
+        holder.onBind(usuario);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onClickUsuario(usuário);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> listener.onClickUsuario(usuario));
     }
 
     @Override
     public int getItemCount() {
-        return usuárioList.size();
+        return usuarioList.size();
     }
 
     public void update(List<Usuario> noticiasList) {
-        this.usuárioList.clear();
-        this.usuárioList = noticiasList;
+        this.usuarioList.clear();
+        this.usuarioList = noticiasList;
         notifyDataSetChanged();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
